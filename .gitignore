@@ -1,3 +1,11 @@
+# ignore large files
+*.pkl
+*.csv
+
+# ignore local files
+local/
+SA_Score/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
