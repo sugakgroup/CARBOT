@@ -5,6 +5,7 @@ CARBOT (Conjugated Aromatic Rule-Based Organic Transformation) is a mathematical
 ## Requirement
 - python: 3.11.9
 - rdkit: 2023.9.1
+- pandas 2.1.4
 
 *Other versions may work, but have not been tested.
 
