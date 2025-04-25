@@ -2,6 +2,13 @@
 CARBOT (Conjugated Aromatic Rule-Based Organic Transformation) is a mathematically verified rule-based molecular generator for π-conjugated  hydrocarbons.
 
 
+## Requirement
+- python: 3.11.9
+- rdkit: 2023.9.1
+
+*Other versions may work, but have not been tested.
+
+
 ## Installation
 ```sh
 git clone https://github.com/sugakgroup/CARBOT.git
