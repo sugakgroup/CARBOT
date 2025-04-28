@@ -43,7 +43,7 @@ def enumerate_EZ(smi):
     return smis
 
 
-def evol_single(smi, evolmethods=("connect","vinyl","ethynyl")):
+def evol_single(smi, evolmethods=("connect","vinyl","ethynyl"), is_EZ=True):
     try:
         mother_mol = AddHs(Chem.MolFromSmiles(smi))
     except:
@@ -107,12 +107,16 @@ def evol_single(smi, evolmethods=("connect","vinyl","ethynyl")):
                     else:
                         rw_mol.RemoveAtom(begin_atom[1])
                         rw_mol.RemoveAtom(end_atom[1])
+                    [a.SetAtomMapNum(0) for a in rw_mol.GetAtoms()]
                     try:
                         smi_before = Chem.MolToSmiles(RemoveHs(rw_mol))
                     except Exception as e:
                         continue
-                    for gen_smi in enumerate_EZ(smi_before):                                   
-                        generation_information.append((gen_smi,(smi,"connect",begin_atom[0],end_atom[0])))
+                    if is_EZ:
+                        for gen_smi in enumerate_EZ(smi_before):                                   
+                            generation_information.append((gen_smi,(smi,"connect",begin_atom[0],end_atom[0])))
+                    else:
+                        generation_information.append((smi_before,(smi,"connect",begin_atom[0],end_atom[0])))
 
     
     # elongate conjugation from C-H carbons
@@ -129,8 +133,11 @@ def evol_single(smi, evolmethods=("connect","vinyl","ethynyl")):
                 smi_before = Chem.MolToSmiles(RemoveHs(rw_mol))
             except Exception as e:
                 continue
-            for gen_smi in enumerate_EZ(smi_before):                       
-                generation_information.append((gen_smi,(smi,"vinyl",atom_idx)))
+            if is_EZ:
+                for gen_smi in enumerate_EZ(smi_before):                       
+                    generation_information.append((gen_smi,(smi,"vinyl",atom_idx)))
+            else:
+                generation_information.append((smi_before,(smi,"vinyl",atom_idx)))
 
     if "ethynyl" in evolmethods:
         for atom_idx, atom_H_idx in atoms_CH+atoms_HH:
@@ -145,8 +152,11 @@ def evol_single(smi, evolmethods=("connect","vinyl","ethynyl")):
                 smi_before = Chem.MolToSmiles(RemoveHs(rw_mol))
             except Exception as e:
                 continue
-            for gen_smi in enumerate_EZ(smi_before):                             
-                generation_information.append((gen_smi,(smi,"ethynyl",atom_idx)))
+            if is_EZ:
+                for gen_smi in enumerate_EZ(smi_before):                             
+                    generation_information.append((gen_smi,(smi,"ethynyl",atom_idx)))
+            else:
+                generation_information.append((smi_before,(smi,"ethynyl",atom_idx)))
 
     # composite paths
     # search triple bonds
@@ -236,8 +246,11 @@ def evol_single(smi, evolmethods=("connect","vinyl","ethynyl")):
                     smi_before = Chem.MolToSmiles(RemoveHs(rw_mol))
                 except Exception as e:
                     continue
-                for gen_smi in enumerate_EZ(smi_before):                              
-                    generation_information.append((gen_smi,(smi,"annulate_pl2",atom_pair[0],atom_pair[1])))
+                if is_EZ:
+                    for gen_smi in enumerate_EZ(smi_before):                              
+                        generation_information.append((gen_smi,(smi,"annulate_pl2",atom_pair[0],atom_pair[1])))
+                else:
+                    generation_information.append((smi_before,(smi,"annulate_pl2",atom_pair[0],atom_pair[1])))
         
         if "annulate_pl4" in evolmethods:
             for atom_pair in connectable_pairs_pl4:
@@ -266,9 +279,12 @@ def evol_single(smi, evolmethods=("connect","vinyl","ethynyl")):
                     smi_before = Chem.MolToSmiles(RemoveHs(rw_mol))
                 except Exception as e:
                     continue
-                for gen_smi in enumerate_EZ(smi_before):                               
-                    generation_information.append((gen_smi,(smi,"annulate_pl4",atom_pair[0],atom_pair[1])))
-    
+                if is_EZ:
+                    for gen_smi in enumerate_EZ(smi_before):                               
+                        generation_information.append((gen_smi,(smi,"annulate_pl4",atom_pair[0],atom_pair[1])))
+                else:
+                    generation_information.append((smi_before,(smi,"annulate_pl4",atom_pair[0],atom_pair[1])))
+
     if "phenyl" in evolmethods:
         for atom_idx, atom_H_idx in atoms_CH+atoms_HH:
             rw_mol = RWMol(mother_mol)
@@ -282,8 +298,11 @@ def evol_single(smi, evolmethods=("connect","vinyl","ethynyl")):
                 smi_before = Chem.MolToSmiles(RemoveHs(rw_mol))
             except Exception as e:
                 continue
-            for gen_smi in enumerate_EZ(smi_before):                             
-                generation_information.append((gen_smi,(smi,"phenyl",atom_idx)))  
+            if is_EZ:
+                for gen_smi in enumerate_EZ(smi_before):                             
+                    generation_information.append((gen_smi,(smi,"phenyl",atom_idx)))
+            else:
+                generation_information.append((smi_before,(smi,"phenyl",atom_idx)))
 
     return generation_information
 

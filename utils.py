@@ -13,9 +13,8 @@ def Kekulize_aromatic(mol,start=0):
                 res_mol = Kekulize_aromatic(rwmol,i)
                 if not res_mol is None:
                     return res_mol
-            return res_mol
+            return None
     return rwmol
-
 
 def propagate_structure(mol):
     rwmol = RWMol(mol)
@@ -97,4 +96,48 @@ def is_benzene_constructed(smi_parent, pos):
             return True
     return False
 
+def num_unit_method(smi):
+    mol = Chem.MolFromSmiles(smi)
+    unsat = (mol.GetNumAtoms()*3 - Chem.AddHs(mol).GetNumAtoms())//2 + 1
+    n_ace = 0
+    for b in mol.GetBonds():
+        if b.GetBondType() == Chem.BondType.TRIPLE:
+            n_ace += 1
+    n_eth = mol.GetNumAtoms()//2 - n_ace
+    n_con = unsat - n_eth - n_ace*2
+    return n_eth, n_ace, n_con
 
+def molfromsmiles_skeleton(smi):
+    mol = Chem.MolFromSmiles(smi)
+    # Chem.Kekulize(mol)
+    # return mol
+    rwmol = RWMol(mol)
+    for bond in rwmol.GetBonds():
+        if bond.GetBondType() != BondType.TRIPLE:
+            bond.SetBondType(BondType.SINGLE)
+    for atom in rwmol.GetAtoms():
+        atom.SetIsAromatic(False)
+    return rwmol
+
+def mol2skeleton(mol):
+    rwmol = RWMol(mol)
+    for bond in rwmol.GetBonds():
+        if bond.GetBondType() != BondType.TRIPLE:
+            bond.SetBondType(BondType.SINGLE)
+    for atom in rwmol.GetAtoms():
+        atom.SetIsAromatic(False)
+    return rwmol
+
+
+def fix_fixed_bonds(smi):
+    mol = Chem.MolFromSmiles(smi)
+    mol = RWMol(propagate_structure(mol))
+    for i in range(len(mol.GetBonds())):
+        rwmol = RWMol(mol)
+        bond = rwmol.GetBondWithIdx(i)
+        if rwmol.GetBondWithIdx(i).GetBondType() == BondType.AROMATIC:
+            bond.SetBondType(BondType.DOUBLE)
+            modmol = propagate_structure(rwmol)
+            if modmol is None:
+                mol.GetBondWithIdx(i).SetBondType(BondType.SINGLE)
+    return mol
