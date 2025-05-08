@@ -2,6 +2,8 @@ from rdkit import Chem
 from rdkit.Chem.rdchem import RWMol, BondType
 
 def Kekulize_aromatic(mol,start=0):
+    if mol is None:
+        return None
     rwmol = propagate_structure(mol)
     if rwmol is None:
         return None

@@ -17,7 +17,7 @@ class NodeDataset:
         self.next_index = 0
 
 class Transmuter:
-    def __init__(self,original_structures,evolmethods=("connect","ethylene","acetylene")):
+    def __init__(self,original_structures,evolmethods=("connect","ethylene","acetylene"),is_EZ=True):
         
         print("---------- Generation #0 ----------")
         print("Structures\n"+",\n".join(original_structures)+"\nare loaded as the original structures.")
@@ -25,6 +25,7 @@ class Transmuter:
         self.num_generation = 0
         self.log = []
         self.evolmethods = evolmethods
+        self.is_EZ = is_EZ
 
         self.node_data.structures_each_generation.append([])
         
@@ -62,7 +63,7 @@ class Transmuter:
         for i, smi in enumerate(self.node_data.structures_each_generation[-2]):
             if i in targeted_cnt:
                 print(f'{i*100.0/num_mother_generation:.0f}% of generation has been finised. Elapsed time: {datetime.timedelta(seconds=time.time()-time_0)}')
-            for gen_smi, gen_detail in evol_single(smi,self.evolmethods):
+            for gen_smi, gen_detail in evol_single(smi,self.evolmethods,self.is_EZ):
                 if not (gen_smi in self.node_data.generated_structures):
                     self.node_data.nodeinfo[gen_smi]["index"] = self.node_data.next_index
                     self.node_data.nodeinfo[gen_smi]["generation"] = self.num_generation

@@ -2,6 +2,8 @@ from rdkit import Chem
 from rdkit.Chem.rdchem import RWMol, BondType
 from rdkit.Chem.rdmolops import AddHs, RemoveHs
 
+from utils import *
+
 def enumerate_EZ(smi):
     mol = Chem.MolFromSmiles(smi)
     if mol is None:
@@ -169,6 +171,7 @@ def evol_single(smi, evolmethods=("connect","vinyl","ethynyl"), is_EZ=True):
             bond_atoms.sort()
             triples.add(tuple(bond_atoms))
     
+    BONDTYPE = (BondType.DOUBLE,BondType.SINGLE)
     
     if "annulate_pl2" in evolmethods or "annulate_pl4" in evolmethods:
         if "annulate_pl4" in evolmethods:
@@ -184,12 +187,13 @@ def evol_single(smi, evolmethods=("connect","vinyl","ethynyl"), is_EZ=True):
             mother_atom_index = mother_atom.GetIdx()
             if not mother_atom_index in acceptable_atoms:
                 continue
-            radius.append([mother_atom])
-            seen_atoms.add(mother_atom)
+            radius.append([[mother_atom_index]])
+            seen_atoms.add(mother_atom_index)
             for i in range(cycle):
                 radius.append([])
-                for atom in radius[-2]:
-                    atom_index = atom.GetIdx()
+                for atom_idxs in radius[-2]:
+                    atom_index = atom_idxs[-1]
+                    atom = mother_mol.GetAtomWithIdx(atom_index)
                     for bond in atom.GetBonds():
                         if bond.GetEndAtom().GetIdx() == atom_index:
                             next_atom = bond.GetBeginAtom()
@@ -202,17 +206,26 @@ def evol_single(smi, evolmethods=("connect","vinyl","ethynyl"), is_EZ=True):
                         if (i%2 == 0 and (not bond.GetBondType() in {Chem.BondType.DOUBLE, Chem.BondType.AROMATIC})) or (i%2 == 1 and (not bond.GetBondType() in {Chem.BondType.SINGLE, Chem.BondType.AROMATIC})):
                             continue
                         if (not (atom_index,next_atom_index) in triples) and (not (next_atom_index,atom_index) in triples) and (((atom_index,next_atom_index) in ccbonds) or ((next_atom_index,atom_index) in ccbonds)):
-                            radius[-1].append(next_atom)
-                            
+                            radius[-1].append(atom_idxs+[next_atom_index])
+            
             if "annulate_pl2" in evolmethods:
-                for atom in radius[3]:
-                    atom_index = atom.GetIdx()
-                    if atom_index in acceptable_atoms and mother_atom_index < atom_index:
+                for atom_idxs in radius[3]:
+                    atom_index = atom_idxs[-1]
+                    if (not atom_index in acceptable_atoms) or mother_atom_index > atom_index:
+                        continue
+                    rwmol = RWMol(Chem.MolFromSmiles(smi))
+                    for i in range(3):
+                        rwmol.GetBondBetweenAtoms(atom_idxs[i],atom_idxs[i+1]).SetBondType(BONDTYPE[i%2])
+                    if not Kekulize_aromatic(rwmol) is None:
                         connectable_pairs_pl2.append(tuple([mother_atom_index,atom_index]))
             if "annulate_pl4" in evolmethods:
-                for atom in radius[1]:
-                    atom_index = atom.GetIdx()
-                    if atom_index in acceptable_atoms and mother_atom_index < atom_index:
+                for atom_idxs in radius[1]:
+                    atom_index = atom_idxs[-1]
+                    if (not atom_index in acceptable_atoms) or mother_atom_index > atom_index:
+                        continue
+                    rwmol = RWMol(Chem.MolFromSmiles(smi))
+                    rwmol.GetBondBetweenAtoms(atom_idxs[0],atom_idxs[1]).SetBondType(BONDTYPE[0])
+                    if not Kekulize_aromatic(rwmol) is None:               
                         connectable_pairs_pl4.append(tuple([mother_atom_index,atom_index]))
 
         atoms_CH_dict = dict()
