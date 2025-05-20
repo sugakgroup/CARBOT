@@ -164,7 +164,7 @@ class HillClimbingEvoMol:
 if __name__ == "__main__":
     RDLogger.DisableLog('rdApp.*')
     import pandas as pd
-    rds = RediscoveryTanimoto("C12=C(C3=C(C4=C5C6=C78)C9=C2C%10=C(C%11=C%12%13)C%14=C9C4=C7C%15=C%14C%11=C%16C%17=C%15C8=C%18C%19=C%20%17)C(C(C3=C5C(C6=C%21%18)=C%22%23)=C%22C%24=C%25%26)=C%26C%27=C1C%10=C%12C%28=C%27C%25=C%29C%30=C%28C%13=C%16C%20=C%30C%31=C%19C%21=C%23C%24=C%31%29") # fullerene
+    # rds = RediscoveryTanimoto("C12=C(C3=C(C4=C5C6=C78)C9=C2C%10=C(C%11=C%12%13)C%14=C9C4=C7C%15=C%14C%11=C%16C%17=C%15C8=C%18C%19=C%20%17)C(C(C3=C5C(C6=C%21%18)=C%22%23)=C%22C%24=C%25%26)=C%26C%27=C1C%10=C%12C%28=C%27C%25=C%29C%30=C%28C%13=C%16C%20=C%30C%31=C%19C%21=C%23C%24=C%31%29") # fullerene
     # rds = RediscoveryTanimoto("C12=CC=CC(C3=C(C4=CC=C5)C5=CC=C3)=C1C4=CC=C2") # perylene
     # rds = RediscoveryTanimoto("C12=CC=CC1=CC=CC=C2") # azulene
     # rds = Rediscovery("C1(C2=CC=C(C(C=C3)=CC=C3C4=CC=C(C5=CC=C6C=C5)C=C4)C=C2)=CC=C(C7=CC=C6C=C7)C=C1") # CPP6
@@ -181,7 +181,7 @@ if __name__ == "__main__":
     # rds = Rediscovery("C1(C=C2C3=C4)=C4C(C=C(C=CC5=C6C=C7C(C(C=C(C=CC8=C9C=C%10C(C(C=C(C=C3)C2=C%11)=C%11C=C%10)=C8)C9=C%12)=C%12C=C7)=C5)C6=C%13)=C%13C=C1") # CNB6,6
     # rds = RediscoveryTanimoto("c1ccccc1") # benzene
     # rds = Rediscovery("C1(C#CC2=CC=C(C#CC3=CC=C(C#CC4=CC=C5C=C4)C=C3)C=C2)=CC=C(C#CC6=CC=C(C#CC7=CC=C(C#C5)C=C7)C=C6)C=C1") # CPPA6
-    rds = Rediscovery("C1(C(C2=CC=CC=C2)=C3C=CC(C=C3)=C4C=CC(C=C4)=C(C5=CC=CC=C5)C6=CC=CC=C6)=CC=CC=C1") # Chichibabin
+    # rds = Rediscovery("C1(C(C2=CC=CC=C2)=C3C=CC(C=C3)=C4C=CC(C=C4)=C(C5=CC=CC=C5)C6=CC=CC=C6)=CC=CC=C1") # Chichibabin
     # rds = Rediscovery("C1(C=C2C=CC(C=C2)=CC3=CC=C4C=C3)=CC=C(C=C5C=CC(C=C5)=CC6=CC=C(C=C6)C=C(C=C7)C=CC7=C4)C=C1") # CPPM6
     # rds = Rediscovery("C1(C=CC(C=C1)=CC2=CC=C(C=C(C=C3)C=CC3=C4)C=C2)=CC5=CC=C(C=C(C=C6)C=CC6=CC7=CC=C(C=C(C=C8)C=CC8=CC9=CC=C4C=C9)C=C7)C=C5") # CPPM8
     # rds = Rediscovery("C1(C=CC=C2)=C2C=CC(C#CC#CC(C=CC3=C4C=CC=C3)=C4C5=C6C=CC7=C5C=CC=C7)=C1C8=C(C#CC#CC9=C(C%10=C(C#CC#C6)C=CC%11=C%10C=CC=C%11)C(C=CC=C%12)=C%12C=C9)C=CC%13=C8C=CC=C%13") # MöbiusAnnulene
@@ -189,8 +189,8 @@ if __name__ == "__main__":
     # rds = Rediscovery("C1(C(C(C2=C(C=CC3=C2C(C(C4=C(C=CC5=C4C(C(C6=C(C=CC7=C6C(C(C=CC=C8)=C8C=C9)=C9C=C7)C=C%10)=C%10C=C%11)=C%11C=C5)C=C%12)=C%12C=C%13)=C%13C=C3)C=C%14)=C%14C=C%15)=C%15C=C%16)=C%16C=CC=C1") # helicene16
     # rds = RediscoveryTanimoto("C12=CC=CC=C1C=CC=C2") # naphthalene
     # rds = RediscoveryTanimoto("C1(C2=CC=CC=C2)=CC=CC=C1") # biphenyl
-    # rds = RediscoveryTanimoto("C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C") # tetracosadodecaene
-    rds = RediscoveryTanimoto("C=CC(C(C(C(C(C(C(C(C(C(C=C)=C)=C)=C)=C)=C)=C)=C)=C)=C)=C") # dendralene12
+    rds = RediscoveryTanimoto("C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C/C=C") # tetracosadodecaene
+    # rds = RediscoveryTanimoto("C=CC(C(C(C(C(C(C(C(C(C(C=C)=C)=C)=C)=C)=C)=C)=C)=C)=C)=C") # dendralene12
 
     for k in [True,False]:
         for j in [[10]]:
@@ -200,7 +200,7 @@ if __name__ == "__main__":
                 hc = HillClimbingEvoMol(is_composite_edge=k,func=rds.score,random_seed=42+i,is_degen=True)
                 hc.multiple(3000)
                 df = pd.DataFrame([(a,b,c,d,e) for a,b,(c,d),e in hc.log], columns=["round","num_eval","score","smiles","time"])
-                df.to_csv(f'data/rediscovery/hillclimbEvoMol_rediscovery-dendralene12_{"comp" if k else "unit"}_{i+42}.csv', index=False)
+                df.to_csv(f'data/rediscovery/hillclimbEvoMol_rediscovery-tetracosadodecaene_{"comp" if k else "unit"}_{i+42}.csv', index=False)
 
 
     

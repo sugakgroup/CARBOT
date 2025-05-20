@@ -26,7 +26,8 @@ def degenerate_rxn(mol, method_name):
 
 def degen_single(smi, evolmethods=("connect","vinyl","ethynyl")):
     parents = []
-
+    if smi == "[H][H]":
+        return []
     if smi == "C=C" and "vinyl" in evolmethods:
         return [("[H][H]",("C=C","vinyl"))]
     if smi == "C#C" and "ethynyl" in evolmethods:

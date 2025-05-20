@@ -99,6 +99,8 @@ def is_benzene_constructed(smi_parent, pos):
     return False
 
 def num_unit_method(smi):
+    if smi == "[H][H]":
+        return 0,0,0
     mol = Chem.MolFromSmiles(smi)
     unsat = (mol.GetNumAtoms()*3 - Chem.AddHs(mol).GetNumAtoms())//2 + 1
     n_ace = 0
