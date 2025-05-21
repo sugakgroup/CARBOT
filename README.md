@@ -37,5 +37,5 @@ This package is distributed under the MIT License.
 
 
 ## How to cite CARBOT
-*Manuscript in preparation.*
-so, please cite this GitHub: https://github.com/sugakgroup/CARBOT
+K. Suga*, H. Takahashi, K. Terayama, M. Sumita, S.Saito, _ChemRxiv_ **2025**.
+*Manuscript in preparation.* Before the DOI is issued, please cite this GitHub repository: https://github.com/sugakgroup/CARBOT
