@@ -23,6 +23,8 @@ class Rediscovery:
             exit()
     
     def score(self,smi):
+        if smi == "[H][H]":
+            return (sum(num_unit_method(smi))+1)/(self.target_generation+1)
         try:
             if self.is_bond_fixed:
                 mol = fix_fixed_bonds(smi)

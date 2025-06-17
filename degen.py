@@ -20,7 +20,7 @@ def degenerate_rxn(mol, method_name):
     for m in rs.RunReactants([mol]):
         rxmol = Kekulize_aromatic(m[0])
         if not rxmol is None:
-            products.add(Chem.MolToSmiles(mol))
+            products.add(Chem.MolToSmiles(rxmol))
     return sorted(list(products))
 
 
