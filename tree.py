@@ -21,22 +21,40 @@ class TreeConstruction:
         print(i,j,"finish")
         return ans
 
+    def find_mcs_flow_bactch(self,pairs):
+        result = dict()
+        for smi1,smi2,i,j in pairs:
+            findmcs = FindMCS(smi1,smi2,is_EZ=False)
+            ans = findmcs.find()
+            # print(i,j,ans)
+            result[(i,j)] = ans
+        return result
+
     def nodes_construction(self):
         i = 2
         while i < len(self.nodes):
-            print(i)
-            with ProcessPoolExecutor(max_workers=3) as executor:
-                results = list(executor.map(self.find_mcs_flow, [(self.nodes[i],self.nodes[j],i,j) for j in range(1,i)]))
-            
+            print(i,self.nodes[i])
+            batches = [[] for _ in range(30)]
             for j in range(1,i):
-                for smi in results[j-1]:
+                batches[j%30].append((self.nodes[i],self.nodes[j],i,j))
+            batches = [tuple(b) for b in batches]
+            with ProcessPoolExecutor(max_workers=30) as executor:
+                # results = list(executor.map(self.find_mcs_flow, [(self.nodes[i],self.nodes[j],i,j) for j in range(1,i)]))
+                results = list(executor.map(self.find_mcs_flow_bactch, batches))
+            
+            for ans in results:
+                for (i,j), smis in ans.items():
+                    # print(i,j,smi)
+                    for smi in smis:
+            # for j in range(1,i):
+            #     for smi in results[j-1]:
                 # for smi in self.find_mcs_flow((self.nodes[i],self.nodes[j])):
-                    if not smi in self.nodes:
-                        self.nodes.append(smi)
-                    if smi != self.nodes[i]:
-                        self.parents[self.nodes[i]].add((sum(num_unit_method(smi)),smi))
-                    if smi != self.nodes[j]:
-                        self.parents[self.nodes[j]].add((sum(num_unit_method(smi)),smi))
+                        if not smi in self.nodes:
+                            self.nodes.append(smi)
+                        if smi != self.nodes[i]:
+                            self.parents[self.nodes[i]].add((sum(num_unit_method(smi)),smi))
+                        if smi != self.nodes[j]:
+                            self.parents[self.nodes[j]].add((sum(num_unit_method(smi)),smi))
             i += 1
             print(f"total #{len(self.nodes)} nodes generated now (i = {i})")
         for k in self.nodes:
