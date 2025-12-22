@@ -1,0 +1,5 @@
+﻿SMILES,Step,NumChild,NumOKChild,AcceptRatio,num_connect,num_vinyl,num_ethynyl
+[H][H],0,3,2,0.6666666666666666,0,0,0
+C=C,1,4,3,0.75,0,1,0
+C=Cc1ccccc1,5,30,3,0.1,1,4,0
+c1ccc(-c2ccccc2)cc1,8,23,0,0.0,2,6,0

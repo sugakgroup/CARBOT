@@ -1,0 +1,17 @@
+[3.409385681152344e-05] Start running HillClimbing from [H][H]...
+[0.0003330707550048828] Updated in round 1! max:(0.06666666666666667, 'C=C')
+[0.0006761550903320312] Updated in round 2! max:(0.13333333333333333, 'C=CC=C')
+[0.0012886524200439453] Updated in round 3! max:(0.2, 'C=CC=CC=C')
+[0.002457857131958008] Updated in round 4! max:(0.26666666666666666, 'C=CC=C(C=C)C=C')
+[0.004318714141845703] Updated in round 5! max:(0.3333333333333333, 'C=CC(C=C)=C(C=C)C=C')
+[0.007860898971557617] Updated in round 6! max:(0.4, 'C=CC=CC(C=C)=C(C=C)C=C')
+[0.014528989791870117] Updated in round 7! max:(0.4666666666666667, 'C=CC(=C)C=CC(C=C)=C(C=C)C=C')
+[0.021364688873291016] Updated in round 8! max:(0.5333333333333333, 'C=CC(=C)C=C(C=C)C(C=C)=C(C=C)C=C')
+[0.02790546417236328] Updated in round 9! max:(0.6, 'C=CC(C=C)=C(C=C)c1cccc(C=C)c1')
+[0.03754067420959473] Updated in round 10! max:(0.6666666666666666, 'C=CC(C=C)=C(C=C)c1cccc(C=C)c1C=C')
+[0.04962587356567383] Updated in round 11! max:(0.7333333333333333, 'C=Cc1c(C=C)c2cccc(C=C)c2c(=C)c1=C')
+[0.058031558990478516] Updated in round 12! max:(0.8, 'C=CC=c1c(C=C)c(C=C)c2cccc(C=C)c2c1=C')
+[0.07144832611083984] Updated in round 13! max:(0.8666666666666667, 'C=CC=c1c(C=C)c(C=C)c2cccc3cccc1c32')
+[0.08345413208007812] Updated in round 14! max:(0.9333333333333333, 'C=Cc1c2cccc3cccc(c4cccc(=C)c14)c32')
+[0.10182976722717285] Updated in round 15! max:(1.0, 'c1cc2cccc3c4cccc5cccc(c(c1)c23)c54')
+[0.10184288024902344] Reproduced in round 15!!

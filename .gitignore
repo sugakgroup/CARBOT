@@ -1,10 +1,17 @@
 # ignore large files
 *.pkl
-*.csv
+cve_*.csv
+cve24p_*.csv
+cve.smi
+cve24p.smi
+COMPAS-1.smi
+COMPAS-3x.smi
+substructure*.csv
+tanimoto*.csv
 
 # ignore local files
-local/
-SA_Score/
+unused/
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

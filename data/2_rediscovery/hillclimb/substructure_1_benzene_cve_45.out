@@ -1,0 +1,6 @@
+[9.34600830078125e-05] Start running HillClimbing from [H][H]...
+[0.0018627643585205078] Updated in round 1! max:(0.25, 'C=C')
+[0.002214670181274414] Updated in round 2! max:(0.5, 'C=CC=C')
+[0.0028357505798339844] Updated in round 3! max:(0.75, 'C=CC=CC=C')
+[0.004364967346191406] Updated in round 4! max:(1.0, 'c1ccccc1')
+[0.004378318786621094] Reproduced in round 4!!

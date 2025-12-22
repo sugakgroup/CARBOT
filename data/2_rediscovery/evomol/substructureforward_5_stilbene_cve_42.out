@@ -1,0 +1,17 @@
+[4.673004150390625e-05]Start running EvoMol from [H][H]...
+[0.0003592967987060547] Updated in round 1! max:(0.1111111111111111, 'C=C'), min:(-99999, '')
+[0.00083160400390625] Updated in round 2! max:(0.2222222222222222, 'C=CC=C'), min:(-99999, '')
+[0.0020580291748046875] Updated in round 3! max:(0.3333333333333333, 'C=CC=CC=C'), min:(-99999, '')
+[0.0037081241607666016] Updated in round 4! max:(0.4444444444444444, 'C=CC=CC=CC=C'), min:(-99999, '')
+[0.006169795989990234] Updated in round 5! max:(0.5555555555555556, 'C=Cc1ccccc1'), min:(-99999, '')
+[0.00851130485534668] Updated in round 6! max:(0.5555555555555556, 'C=Cc1ccccc1'), min:(-99999, '')
+[0.009368419647216797] Updated in round 7! max:(0.6666666666666666, 'C=CC=Cc1ccccc1'), min:(-99999, '')
+[0.013133764266967773] Updated in round 8! max:(0.6666666666666666, 'C=CC=Cc1ccccc1'), min:(-99999, '')
+[0.013921022415161133] Updated in round 9! max:(0.6666666666666666, 'C=CC=Cc1ccccc1'), min:(-99999, '')
+[0.014984369277954102] Updated in round 10! max:(0.7777777777777778, 'C=CC=CC=Cc1ccccc1'), min:(-99999, '')
+[0.02048802375793457] Updated in round 11! max:(0.7777777777777778, 'C=CC=CC=Cc1ccccc1'), min:(-99999, '')
+[0.021381855010986328] Updated in round 12! max:(0.7777777777777778, 'C=CC=CC=Cc1ccccc1'), min:(-99999, '')
+[0.02227473258972168] Updated in round 13! max:(0.7777777777777778, 'C=CC=CC=Cc1ccccc1'), min:(-99999, '')
+[0.02326202392578125] Updated in round 14! max:(0.8888888888888888, 'C=CC=C(C=C)C=Cc1ccccc1'), min:(-99999, '')
+[0.03040027618408203] Updated in round 15! max:(0.8888888888888888, 'C=CC=C(C=C)C=Cc1ccccc1'), min:(-99999, '')
+[0.03120136260986328] Reproduced in round 16!!

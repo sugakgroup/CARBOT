@@ -1,0 +1,11 @@
+﻿SMILES,Step,NumChild,NumOKChild,AcceptRatio,num_connect,num_vinyl,num_ethynyl
+[H][H],0,3,2,0.6666666666666666,0,0,0
+c1ccccc1,4,7,3,0.42857142857142855,1,3,0
+c1ccc(-c2ccccc2)cc1,8,23,3,0.13043478260869565,2,6,0
+C=Cc1cccc(-c2ccccc2)c1,9,72,6,0.08333333333333333,2,7,0
+C=Cc1cccc(-c2ccccc2)c1C=C,10,81,5,0.06172839506172839,2,8,0
+C=CC(=C)c1c(C=C)cccc1-c1ccccc1,11,95,4,0.042105263157894736,2,9,0
+C=CC(=C)c1c(C=C)cccc1-c1cccc(C=C)c1,12,140,3,0.02142857142857143,2,10,0
+C=Cc1cccc(-c2cccc3cccc(C=C)c23)c1,13,141,2,0.014184397163120567,3,10,0
+C=Cc1cccc2c1c(=C)c1cccc3cccc2c31,14,107,1,0.009345794392523364,4,10,0
+c1cc2cccc3c4cccc5cccc(c(c1)c23)c54,15,32,0,0.0,5,10,0

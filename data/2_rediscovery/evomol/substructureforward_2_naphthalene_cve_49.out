@@ -1,0 +1,11 @@
+[5.364418029785156e-05]Start running EvoMol from [H][H]...
+[0.0004215240478515625] Updated in round 1! max:(0.14285714285714285, 'C=C'), min:(-99999, '')
+[0.0010094642639160156] Updated in round 2! max:(0.2857142857142857, 'C=CC=C'), min:(-99999, '')
+[0.002550840377807617] Updated in round 3! max:(0.42857142857142855, 'C=CC=CC=C'), min:(-99999, '')
+[0.004446983337402344] Updated in round 4! max:(0.5714285714285714, 'C=CC=CC=CC=C'), min:(-99999, '')
+[0.007381916046142578] Updated in round 5! max:(0.7142857142857143, 'C=c1ccccc1=C'), min:(-99999, '')
+[0.010105609893798828] Updated in round 6! max:(0.8571428571428571, 'C=CC=c1ccccc1=C'), min:(-99999, '')
+[0.014191865921020508] Updated in round 7! max:(0.8571428571428571, 'C=CC=c1ccccc1=C'), min:(-99999, '')
+[0.01521158218383789] Updated in round 8! max:(0.8571428571428571, 'C=CC=c1ccccc1=C'), min:(-99999, '')
+[0.016192913055419922] Updated in round 9! max:(0.8571428571428571, 'C=CC=c1ccccc1=C'), min:(-99999, '')
+[0.0169980525970459] Reproduced in round 10!!

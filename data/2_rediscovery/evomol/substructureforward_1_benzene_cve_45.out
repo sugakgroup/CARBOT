@@ -1,0 +1,5 @@
+[0.0002865791320800781]Start running EvoMol from [H][H]...
+[0.0010497570037841797] Updated in round 1! max:(0.25, 'C=C'), min:(-99999, '')
+[0.0016598701477050781] Updated in round 2! max:(0.5, 'C=CC=C'), min:(-99999, '')
+[0.0030984878540039062] Updated in round 3! max:(0.75, 'C=CC=CC=C'), min:(-99999, '')
+[0.004778623580932617] Reproduced in round 4!!
