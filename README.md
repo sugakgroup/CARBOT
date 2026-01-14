@@ -1,6 +1,6 @@
 # CARBOT
 
-**CARBOT** (*π-Conjugated Aromatic Rule-Based Organic Transformation*) is a unit-based molecule generator for **π-conjugated hydrocarbons**.
+**CARBOT** (*Conjugated and Aromatic Rule-Based Organic Transformation*) is a unit-based molecule generator for **π-conjugated hydrocarbons**.
 
 This repository contains the source code and research materials accompanying the CARBOT paper/preprint (see **Citation** below). For the version used in the manuscript, please use the corresponding tagged release (e.g., `v1.0.0`).
 
