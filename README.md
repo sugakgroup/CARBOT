@@ -89,7 +89,7 @@ K. Suga*, H. Takahashi, K. Terayama, M. Sumita, S. Saito, **ChemRxiv** (2026). D
 ### BibTeX
 
 ```bibtex
-@article{suga_carbot_2025,
+@article{suga_carbot_2026,
   author  = {Suga, Kensuke and Takahashi, H. and Terayama, K. and Sumita, M. and Saito, S.},
   title   = {Defining the Complete Chemical Space of π-Conjugated Hydrocarbons by Unit-Based Construction},
   journal = {ChemRxiv},
@@ -102,4 +102,4 @@ K. Suga*, H. Takahashi, K. Terayama, M. Sumita, S. Saito, **ChemRxiv** (2026). D
 
 ## Contact
 
-For questions or collaboration inquiries, please contact the author via e-mail (sugak24[at]chem.sci.osaka-u.ac.jp) .
+For questions or collaboration inquiries, please contact the author via e-mail (sugak24[at]chem.sci.osaka-u.ac.jp).
